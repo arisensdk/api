@@ -1,37 +1,37 @@
-[![NPM](https://img.shields.io/npm/v/eosjs-api.svg)](https://www.npmjs.org/package/eosjs-api)
+[![NPM](https://img.shields.io/npm/v/@arisensdk/api.svg)](https://www.npmjs.org/package/@arisensdk/api)
 
 # Eos API
 
 Application programming interface to EOS blockchain nodes.  This is for
 read-only API calls.  If you need to sign transactions use
-[eosjs](https://github.com/eosio/eosjs) instead.
+[arisensdk](https://github.com/eosio/arisensdk) instead.
 
 # Include
 
-* Install with: `npm install eosjs-api`
-* Html script tag, see [releases](https://github.com/EOSIO/eosjs-api/releases) for the correct **version** and its matching script **integrity** hash.
+* Install with: `npm install @arisensdk/api`
+* Html script tag, see [releases](https://github.com/arisensdk/api/releases) for the correct **version** and its matching script **integrity** hash.
 
 ```html
 <html>
 <head>
   <meta charset="utf-8">
   <!--
-  sha512-n3CgU6w9TJVf/pVIMHYhk3Gxv8lEQYjVrSSTLXvEBENLF+CQd1Kp0jxXj09yGUOkWerdv2mJlh1Mnz3aRfYqWw== lib/eos-api.js
-  sha512-Cj2FQb94MMtDPgHb1R1577pEMjYhc+P5pNgv1/QwoJD9ntuR9rnWlqJACS/xNniNK5cFS6Y6CpQlHWpzWUeEbw== lib/eos-api.min.js
-  sha512-4C6oDKarS8DaXO99o342USbeQwqW98qik+QSzVGfof939gUpIyRDCnbGIGQAIkLNpYZIV4XanmRy3wcis6UW8w== lib/eos-api.min.js.map
+  sha512-n3CgU6w9TJVf/pVIMHYhk3Gxv8lEQYjVrSSTLXvEBENLF+CQd1Kp0jxXj09yGUOkWerdv2mJlh1Mnz3aRfYqWw== lib/arisen-api.js
+  sha512-Cj2FQb94MMtDPgHb1R1577pEMjYhc+P5pNgv1/QwoJD9ntuR9rnWlqJACS/xNniNK5cFS6Y6CpQlHWpzWUeEbw== lib/arisen-api.min.js
+  sha512-4C6oDKarS8DaXO99o342USbeQwqW98qik+QSzVGfof939gUpIyRDCnbGIGQAIkLNpYZIV4XanmRy3wcis6UW8w== lib/arisen-api.min.js.map
   -->
-  <script src="https://cdn.jsdelivr.net/npm/eosjs-api@7.0.4/lib/eos-api.min.js"
+  <script src="https://cdn.jsdelivr.net/npm/@arisensdk/api@1.0.0/lib/arisen-api.min.js"
     integrity="sha512-LLDsX/GdVZYA82k9TVz3zUxSjvaX8s5b1FJm64W51JGxLFKI2z+ljqYQtsUZIOxh9pSUqvLA5HCoxXqdRxusKw=="
     crossorigin="anonymous"></script>
 
 </head>
 <body>
-  See console object: EosApi
+  See console object: RixApi
 </body>
 </html>
 ```
 
-## EosApi
+## RixApi
 
 Run [nodeos](https://github.com/eosio/eos)
 
@@ -41,13 +41,13 @@ Run [nodeos](https://github.com/eosio/eos)
 ## Usage
 
 ```javascript
-EosApi = require('eosjs-api') // Or EosApi = require('./src')
+RixApi = require('@arisensdk/api') // Or RixApi = require('./src')
 
-eos = EosApi() // // 127.0.0.1:8888
+eos = RixApi() // // 127.0.0.1:8888
 
 // Any API call without a callback parameter will print documentation: description,
 // parameters, return value, and possible errors.  All methods and documentation
-// are created from JSON files in eosjs/json/api/v1..
+// are created from JSON files in arisensdk/json/api/v1..
 eos.getInfo()
 
 // A Promise is returned if a callback is not provided.
@@ -71,7 +71,7 @@ eos.getBlock({block_num_or_id: 1}).then(result => console.log(result))
 ## Configuration
 
 ```js
-EosApi = require('eosjs-api') // Or EosApi = require('./src')
+RixApi = require('@arisensdk/api') // Or RixApi = require('./src')
 
 // everything is optional
 options = {
@@ -84,7 +84,7 @@ options = {
   fetchConfiguration: {}
 }
 
-eos = EosApi(options)
+eos = RixApi(options)
 ```
 ### options.logger example
 
@@ -106,7 +106,7 @@ options.fetchConfiguration = {
   credentials: 'same-origin'
 }
 ```
-Every eosjs-api request will run [fetch](https://github.com/github/fetch#sending-cookies) with this configuration:
+Every @arisensdk/api request will run [fetch](https://github.com/github/fetch#sending-cookies) with this configuration:
 ```js
 fetch('https://example.com', {
   credentials: 'same-origin'
