@@ -2,7 +2,7 @@
 
 # Eos API
 
-Application programming interface to EOS blockchain nodes.  This is for
+Application programming interface to ARISEN blockchain nodes.  This is for
 read-only API calls.  If you need to sign transactions use
 [arisensdk](https://github.com/eosio/arisensdk) instead.
 
@@ -33,7 +33,7 @@ read-only API calls.  If you need to sign transactions use
 
 ## RixApi
 
-Run [nodeos](https://github.com/eosio/eos)
+Run [aos](https://github.com/arisenio/arisen)
 
 * [API](./docs/api.md)
 * [Helper Functions](./docs/index.md)
@@ -43,29 +43,29 @@ Run [nodeos](https://github.com/eosio/eos)
 ```javascript
 RixApi = require('@arisensdk/api') // Or RixApi = require('./src')
 
-eos = RixApi() // // 127.0.0.1:8888
+arisen = RixApi() // // 127.0.0.1:8888
 
 // Any API call without a callback parameter will print documentation: description,
 // parameters, return value, and possible errors.  All methods and documentation
 // are created from JSON files in arisensdk/json/api/v1..
-eos.getInfo()
+arisen.getInfo()
 
 // A Promise is returned if a callback is not provided.
-eos.getInfo({}).then(result => console.log(result))
-eos.getBlock(1).then(result => console.log(result))
+arisen.getInfo({}).then(result => console.log(result))
+arisen.getBlock(1).then(result => console.log(result))
 
 // For callbacks instead of Promises provide a callback
 callback = (err, res) => {err ? console.error(err) : console.log(res)}
 
 // The server does not expect any parameters only the callback is needed
-eos.getInfo(callback)
+arisen.getInfo(callback)
 
 // Parameters are added before the callback
-eos.getBlock(1, callback)
+arisen.getBlock(1, callback)
 
 // Parameters can be an object
-eos.getBlock({block_num_or_id: 1}, callback)
-eos.getBlock({block_num_or_id: 1}).then(result => console.log(result))
+arisen.getBlock({block_num_or_id: 1}, callback)
+arisen.getBlock({block_num_or_id: 1}).then(result => console.log(result))
 ```
 
 ## Configuration
@@ -84,7 +84,7 @@ options = {
   fetchConfiguration: {}
 }
 
-eos = RixApi(options)
+arisen = RixApi(options)
 ```
 ### options.logger example
 
